@@ -1,6 +1,6 @@
 {
-  "name": "clash-verge",
-  "version": "2.2.3",
+  "name": "clash-max",
+  "version": "2.2.3.1",
   "license": "GPL-3.0-only",
   "scripts": {
     "dev": "cross-env RUST_BACKTRACE=1 tauri dev -f verge-dev -- --profile fast-dev",
@@ -8,7 +8,7 @@
     "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' tauri build",
     "build:fast": "cross-env NODE_OPTIONS='--max-old-space-size=4096' tauri build -- --profile fast-release",
     "tauri": "tauri",
-    "web:dev": "vite",
+    "web:dev": "vite --port 3001",
     "web:build": "tsc --noEmit && vite build",
     "web:serve": "vite preview",
     "check": "node scripts/check.mjs",

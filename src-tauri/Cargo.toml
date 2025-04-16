@@ -1,16 +1,16 @@
 [package]
-name = "clash-verge"
-version = "2.2.3"
-description = "clash verge"
+name = "clash-max"
+version = "2.2.4-alpha"
+description = "clash max"
 authors = ["zzzgydi", "wonfen", "MystiPanda"]
 license = "GPL-3.0-only"
-repository = "https://github.com/clash-verge-rev/clash-verge-rev.git"
-default-run = "clash-verge"
+repository = "https://github.com/cg3s/clash-max.git"
+default-run = "clash-max"
 edition = "2021"
 build = "build.rs"
 
 [package.metadata.bundle]
-identifier = "io.github.clash-verge-rev.clash-verge-rev"
+identifier = "io.github.cg3s.clash-max"
 
 [build-dependencies]
 tauri-build = { version = "2.1.0", features = [] }
@@ -87,7 +87,6 @@ users = "0.11.0"
 tauri-plugin-autostart = "2.2.0"
 tauri-plugin-global-shortcut = "2.2.0"
 tauri-plugin-updater = "2.6.1"
-tauri-plugin-window-state = "2.2.1"
 
 [features]
 default = ["custom-protocol"]

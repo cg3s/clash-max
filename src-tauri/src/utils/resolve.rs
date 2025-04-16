@@ -5,6 +5,7 @@ use crate::{
     core::*,
     logging, logging_error,
     module::lightweight,
+    process::AsyncHandler,
     utils::{error, init, logging::Type, server},
     wrap_err,
 };
@@ -122,6 +123,11 @@ pub async fn resolve_reset_async() {
 
 /// create main window
 pub fn create_window(is_showup: bool) {
+    if !is_showup {
+        logging!(info, Type::Window, "Not to display create window");
+        return;
+    }
+
     logging!(info, Type::Window, true, "Creating window");
 
     let app_handle = handle::Handle::global().app_handle().unwrap();
@@ -150,15 +156,13 @@ pub fn create_window(is_showup: bool) {
         return;
     }
 
-    logging!(info, Type::Window, true, "Creating new application window");
-
     #[cfg(target_os = "windows")]
     let window = tauri::WebviewWindowBuilder::new(
                 &app_handle,
                 "main".to_string(),
                 tauri::WebviewUrl::App("index.html".into()),
             )
-            .title("Clash Verge")
+            .title("Clash Max")
             .inner_size(890.0, 700.0)
             .min_inner_size(620.0, 550.0)
             .decorations(false)
@@ -187,7 +191,7 @@ pub fn create_window(is_showup: bool) {
         "main".to_string(),
         tauri::WebviewUrl::App("index.html".into()),
     )
-    .title("Clash Verge")
+    .title("Clash Max")
     .decorations(false)
     .inner_size(890.0, 700.0)
     .min_inner_size(620.0, 550.0)
@@ -197,30 +201,15 @@ pub fn create_window(is_showup: bool) {
     match window {
         Ok(window) => {
             logging!(info, Type::Window, true, "Window created successfully");
-            if is_showup {
-                println!("is showup");
-                let _ = window.show();
-                let _ = window.set_focus();
-            } else {
-                let _ = window.hide();
-                #[cfg(target_os = "macos")]
-                AppHandleManager::global().set_activation_policy_accessory();
-            }
-
-            // 设置窗口状态监控，实时保存窗口位置和大小
-            // crate::feat::setup_window_state_monitor(&app_handle);
+            let _ = window.show();
+            let _ = window.set_focus();
 
             // 标记前端UI已准备就绪，向前端发送启动完成事件
             let app_handle_clone = app_handle.clone();
-            tauri::async_runtime::spawn(async move {
+            AsyncHandler::spawn(move || async move {
                 use tauri::Emitter;
 
-                logging!(
-                    info,
-                    Type::Window,
-                    true,
-                    "标记前端UI已准备就绪，开始处理启动错误队列"
-                );
+                logging!(info, Type::Window, true, "UI gets ready.");
                 handle::Handle::global().mark_startup_completed();
 
                 if let Some(window) = app_handle_clone.get_webview_window("main") {

@@ -5,9 +5,11 @@ mod enhance;
 mod error;
 mod feat;
 mod module;
+mod process;
 mod utils;
 use crate::{
     core::hotkey,
+    process::AsyncHandler,
     utils::{resolve, resolve::resolve_scheme, server},
 };
 use config::Config;
@@ -84,7 +86,7 @@ impl AppHandleManager {
 #[allow(clippy::panic)]
 pub fn run() {
     // 单例检测
-    let app_exists: bool = tauri::async_runtime::block_on(async move {
+    let app_exists: bool = AsyncHandler::block_on(move || async move {
         if server::check_singleton().await.is_err() {
             println!("app exists");
             true
@@ -107,7 +109,6 @@ pub fn run() {
             MacosLauncher::LaunchAgent,
             None,
         ))
-        .plugin(tauri_plugin_window_state::Builder::new().build())
         .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_clipboard_manager::init())
         .plugin(tauri_plugin_process::init())
@@ -116,23 +117,24 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_deep_link::init())
-        .plugin(tauri_plugin_window_state::Builder::default().build())
         .setup(|app| {
             #[cfg(any(target_os = "linux", all(debug_assertions, windows)))]
             {
                 use tauri_plugin_deep_link::DeepLinkExt;
                 logging_error!(Type::System, true, app.deep_link().register_all());
             }
-
             app.deep_link().on_open_url(|event| {
-                tauri::async_runtime::spawn(async move {
-                    if let Some(url) = event.urls().first() {
-                        logging_error!(Type::Setup, true, resolve_scheme(url.to_string()).await);
+                AsyncHandler::spawn(move || {
+                    let url = event.urls().first().map(|u| u.to_string());
+                    async move {
+                        if let Some(url) = url {
+                            logging_error!(Type::Setup, true, resolve_scheme(url).await);
+                        }
                     }
                 });
             });
 
-            tauri::async_runtime::block_on(async move {
+            AsyncHandler::block_on(move || async move {
                 resolve::resolve_setup(app).await;
             });
 
@@ -246,7 +248,7 @@ pub fn run() {
                     .get_handle()
                     .get_webview_window("main")
                 {
-                    let _ = window.set_title("Clash Verge");
+                    let _ = window.set_title("Clash Max");
                 }
             }
         }

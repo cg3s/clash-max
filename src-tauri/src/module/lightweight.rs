@@ -5,7 +5,7 @@ use tauri::{Listener, Manager};
 use crate::{
     config::Config,
     core::{handle, timer::Timer},
-    log_err, logging,
+    log_err, logging, logging_error,
     utils::logging::Type,
     AppHandleManager,
 };
@@ -40,6 +40,10 @@ pub fn entry_lightweight_mode() {
     let _ = cancel_light_weight_timer();
 }
 
+pub fn add_light_weight_timer() {
+    logging_error!(Type::Lightweight, setup_light_weight_timer());
+}
+
 fn setup_window_close_listener() -> u32 {
     if let Some(window) = handle::Handle::global().get_window() {
         let handler = window.listen("tauri://close-requested", move |_event| {
@@ -63,7 +67,6 @@ fn setup_webview_focus_listener() -> u32 {
             logging!(
                 info,
                 Type::Lightweight,
-                true,
                 "监听到窗口获得焦点，取消轻量模式计时"
             );
         });
