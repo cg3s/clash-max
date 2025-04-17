@@ -440,22 +440,15 @@ export const CurrentProxyCard = () => {
       }
       iconColor={currentProxy ? "primary" : undefined}
       action={
-        // <Button
-        //   variant="outlined"
-        //   size="small"
-        //   onClick={goToProxies}
-        //   sx={{ borderRadius: 1.5 }}
-        //   endIcon={<ChevronRight fontSize="small" />}
-        // >
-        //   {t("Label-Proxies")}
-        // </Button>
-        <IconButton 
-          color="primary"
-          aria-label={t("Label-Profiles")}
-          size="large" 
-          onClick={goToProxies}>
-          <ChevronRight fontSize="inherit" />
-      </IconButton>        
+        currentProxy ?
+          <IconButton 
+            color="primary"
+            aria-label={t("Label-Profiles")}
+            size="large" 
+            onClick={goToProxies}>
+            <ChevronRight fontSize="inherit" />
+          </IconButton>
+        : <></>
       }
     >
       {currentProxy ? (
