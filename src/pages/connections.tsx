@@ -125,7 +125,7 @@ const ConnectionsPage = () => {
   return (
     <BasePage
       full
-      title={<span style={{ whiteSpace: "nowrap" }}>{t("Connections")}</span>}
+      title={<span style={{ whiteSpace: "nowrap" }}>{t("Network Control")}</span>}
       contentStyle={{
         height: "100%",
         display: "flex",

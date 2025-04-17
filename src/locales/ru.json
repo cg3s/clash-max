@@ -19,7 +19,7 @@
   "Label-Dashboard": "Дашборд",
   "Label-Proxies": "Прокси",
   "Label-Profiles": "Профили",
-  "Label-Connections": "Соединения",
+  "Label-NetworkControl": "Управление сетью",
   "Label-Rules": "Правила",
   "Label-Logs": "Логи",
   "Label-Unlock": "Разблокировка",
@@ -163,6 +163,7 @@
   "To Top": "Наверх",
   "To End": "Вниз",
   "Connections": "Соединения",
+  "Network Control": "Управление сетью",
   "Table View": "Отображать в виде таблицы",
   "List View": "Отображать в виде списка",
   "Close All": "Закрыть всё",
@@ -579,5 +580,5 @@
   "No (IP Banned By Disney+)": "Нет (IP забанен Disney+)",
   "Unsupported Country/Region": "Страна/регион не поддерживается",
   "Failed (Network Connection)": "Ошибка подключения",
-  "Record": "Record"
+  "Record": "Запись"
 }

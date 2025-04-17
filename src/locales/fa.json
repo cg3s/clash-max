@@ -18,7 +18,7 @@
   "Disable": "غیرفعال کردن",
   "Label-Proxies": "پراکسی‌ها",
   "Label-Profiles": "پروفایل‌ها",
-  "Label-Connections": "اتصالات",
+  "Label-NetworkControl": "کنترل شبکه",
   "Label-Rules": "قوانین",
   "Label-Logs": "لاگ‌ها",
   "Label-Test": "آزمون",
@@ -162,6 +162,7 @@
   "To Top": "به بالا",
   "To End": "به پایان",
   "Connections": "اتصالات",
+  "Network Control": "کنترل شبکه",
   "Table View": "نمای جدولی",
   "List View": "نمای لیستی",
   "Close All": "بستن همه",
@@ -451,5 +452,5 @@
   "Install Service": "نصب سرویس",
   "Installing Service...": "در حال نصب سرویس...",
   "Service Administrator Prompt": "Clash Max برای نصب مجدد سرویس سیستم به امتیازات مدیر نیاز دارد",
-  "Record": "Record"
+  "Record": "ضبط"
 }

@@ -82,6 +82,19 @@ const LogPage = () => {
       }}
       header={
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          {enableLog === true && (
+            <Button
+              size="small"
+              variant="contained"
+              startIcon={<CleaningServicesOutlined  />}
+              onClick={() => {
+                clearGlobalLogs();
+              }}
+            >
+              {t("Clear")}
+            </Button>
+          )}
+
           <Button
             variant="contained"
             size="small"
@@ -96,20 +109,7 @@ const LogPage = () => {
             }
           >
             {enableLog ? t("Pause") : t("Record")}
-          </Button>
-
-          {enableLog === true && (
-            <Button
-              size="small"
-              variant="contained"
-              startIcon={<CleaningServicesOutlined  />}
-              onClick={() => {
-                clearGlobalLogs();
-              }}
-            >
-              {t("Clear")}
-            </Button>
-          )}
+          </Button>          
         </Box>
       }
     >

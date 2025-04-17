@@ -58,7 +58,7 @@ export const routers = [
     element: <UnlockPage />,
   },    
   {
-    label: "Label-Connections",
+    label: "Label-NetworkControl",
     path: "/connections",
     icon: [<LanguageRoundedIcon />, <ConnectionsSvg />],
     element: <ConnectionsPage />,

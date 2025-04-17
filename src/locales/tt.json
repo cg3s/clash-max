@@ -18,7 +18,7 @@
   "Disable": "Сүндерү",
   "Label-Proxies": "Прокси",
   "Label-Profiles": "Профильләр",
-  "Label-Connections": "Тоташулар",
+  "Label-NetworkControl": "Челтәрне идарә итү",
   "Label-Rules": "Кагыйдәләр",
   "Label-Logs": "Логлар",
   "Label-Test": "Тест",
@@ -162,6 +162,7 @@
   "To Top": "Өскә",
   "To End": "Аска",
   "Connections": "Тоташулар",
+  "Network Control": "Челтәрне контрольдә тоту",
   "Table View": "Таблица күзаллау",
   "List View": "Исемлек күзаллау",
   "Close All": "Барысын да ябу",
@@ -450,5 +451,5 @@
   "Install Service": "Хезмәтне урнаштыру",
   "Installing Service...": "Хезмәт урнаштырыла...",
   "Service Administrator Prompt": "Clash Max система хезмәтен яңадан урнаштыру өчен администратор хокукларын таләп итә",
-  "Record": "Record"
+  "Record": "Запись"
 }

@@ -9,6 +9,7 @@ import {
   useTheme,
   Link,
   keyframes,
+  IconButton
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import {
@@ -19,6 +20,7 @@ import {
   SpeedOutlined,
   EventOutlined,
   LaunchOutlined,
+  ChevronRight,
 } from "@mui/icons-material";
 import dayjs from "dayjs";
 import parseTraffic from "@/utils/parse-traffic";
@@ -347,15 +349,13 @@ export const HomeProfileCard = ({ current, onProfileUpdated }: HomeProfileCardPr
     if (!current) return null;
     
     return (
-      <Button
-        variant="outlined"
-        size="small"
-        onClick={goToProfiles}
-        endIcon={<StorageOutlined fontSize="small" />}
-        sx={{ borderRadius: 1.5 }}
-      >
-        {t("Label-Profiles")}
-      </Button>
+      <IconButton 
+        color="primary"
+        aria-label={t("Label-Profiles")}
+        size="large" 
+        onClick={goToProfiles}>
+        <ChevronRight fontSize="inherit" />
+      </IconButton>      
     );
   }, [current, goToProfiles, t]);
 

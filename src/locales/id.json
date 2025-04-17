@@ -18,7 +18,7 @@
   "Disable": "Nonaktifkan",
   "Label-Proxies": "Proksi",
   "Label-Profiles": "Profil",
-  "Label-Connections": "Koneksi",
+  "Label-NetworkControl": "Kontrol Jaringan",
   "Label-Rules": "Aturan",
   "Label-Logs": "Log",
   "Label-Test": "Tes",
@@ -194,6 +194,7 @@
   "To Top": "Ke Atas",
   "To End": "Ke Bawah",
   "Connections": "Koneksi",
+  "Network Control": "Kontrol Jaringan",
   "Table View": "Tampilan Tabel",
   "List View": "Tampilan Daftar",
   "Close All": "Tutup Semua",
@@ -450,5 +451,5 @@
   "Install Service": "Instal Layanan",
   "Installing Service...": "Memasang Layanan...",
   "Service Administrator Prompt": "Clash Max memerlukan hak administrator untuk menginstal ulang layanan sistem",
-  "Record": "Record"
+  "Record": "Rekaman"
 }

@@ -167,7 +167,7 @@ export const AppDataProvider = ({ children }: { children: React.ReactNode }) => 
                 };
               });
             } catch (err) {
-              console.error("[Connections] 解析数据错误:", err);
+              console.error("[Network] 解析数据错误:", err);
             }
           },
           onerror() {

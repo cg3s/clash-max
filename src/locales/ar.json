@@ -18,7 +18,7 @@
   "Disable": "تعطيل",
   "Label-Proxies": "الوكلاء",
   "Label-Profiles": "الملفات الشخصية",
-  "Label-Connections": "الاتصالات",
+  "Label-NetworkControl": "التحكم في الشبكة",
   "Label-Rules": "القواعد",
   "Label-Logs": "السجلات",
   "Label-Test": "اختبار",
@@ -162,6 +162,7 @@
   "To Top": "إلى الأعلى",
   "To End": "إلى النهاية",
   "Connections": "الاتصالات",
+  "Network Control": "تحكم الشبكة",
   "Table View": "عرض الجدول",
   "List View": "عرض القائمة",
   "Close All": "إغلاق الكل",
@@ -454,5 +455,5 @@
   "Install Service": "تثبيت الخدمة ",
   "Installing Service...": "جاري تثبيت الخدمة...",
   "Service Administrator Prompt": "يتطلب Clash Max امتيازات المسؤول لإعادة تثبيت خدمة النظام",
-  "Record": "Record"
+  "Record": "تسجيل"
 }
